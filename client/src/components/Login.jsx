@@ -2,12 +2,13 @@ import { useState } from "react";
 import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 export default function Login() {
   const [formData, setFormData] = useState({ email: "", password: "" });
-
   const [err, setErr] = useState("");
+  const [pop, setPop] = useState(false);
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -25,13 +26,7 @@ export default function Login() {
       
 			localStorage.setItem("token", res.data.data);
       localStorage.setItem("user", JSON.stringify(res.data.user));
-      // const storedUser = localStorage.getItem("user.name");
-			alert("Login successful");
-
-//       console.log("Login response:", res.data);
-// console.log("User to store:", res.data.user);
-
-      window.location = "/";
+      setPop(true);
 		} catch (err) {
 			if (
 				err.response &&
@@ -51,12 +46,16 @@ export default function Login() {
     navigate("/signup"); 
   };
 
+  const goToHome = () => {
+    navigate("/");
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-white text-green-800">
+    <div className="min-h-screen glass-card text-green-800 ">
     
-      <div className="flex flex-col items-center justify-center px-4 mt-16 text-center">
-        <h2 className="text-2xl font-bold text-center text-gray-800">Login</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="flex flex-col items-center justify-center p-20 text-center ">
+        <h2 className="text-2xl font-bold text-center text-gray-800 z-40">Login</h2>
+        <form onSubmit={handleSubmit} className="space-y-4 z-40">
           <div>
             <label className="block mb-1 text-sm font-medium text-gray-700">
               Email
@@ -92,9 +91,28 @@ export default function Login() {
             Log In
           </button>
         </form>
+    {pop && (
+  <Popup open modal onClose={() => setPop(false)}>
+    <div className="bg-cyan-800 p-20 rounded-xl text-center">
+      <h2 className="text-xl font-bold text-gray-100 mb-2">Logged in successfully</h2>
+      <p className="mb-4 text-gray-200">Enjoy your study time!</p>
+      <button
+        onClick={() => {
+          setPop(false);
+          goToHome()
+        }}
+        className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+      >
+        Close
+      </button>
+    </div>
+  </Popup>
+)}
+
+
         {err && <div className="text-red-500 text-sm text-center">{err}</div>}
 
-          <button onClick={goToSignup}>Don't have an account?</button>
+          <button onClick={goToSignup} className="text-black ">Don't have an account?</button>
       
       </div>
     </div>

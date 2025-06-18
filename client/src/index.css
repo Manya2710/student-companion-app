@@ -1,1 +1,29 @@
 @import "tailwindcss";
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: black;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.glass-card {
+  background-image: url('/bg2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+}
+
+.design{
+  animation: first 3s ease;
+}
+
+@keyframes first {
+  0%   {transform: translateY((-30px));
+  opacity: 0;}
+  100% {ransform: translateY((0));
+  opacity: 1;}
+}

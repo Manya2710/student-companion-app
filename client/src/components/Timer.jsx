@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import classNames from "classnames";
 
 const Timer = () => {
-  const [mode, setMode] = useState("pomodoro"); // 'pomodoro', 'shortBreak', 'longBreak'
+  const [mode, setMode] = useState("pomodoro");
   const [durations, setDurations] = useState({
     pomodoro: 25,
     shortBreak: 5,
@@ -50,12 +50,12 @@ const Timer = () => {
   const strokeDashoffset = circumference * (1 - percentage);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-amber-200 text-amber-600">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-cyan-200 text-indigo-800">
       <h1 className="text-2xl font-bold mb-4">Pomodoro Timer</h1>
 
       {/* Modes */}
       <div className="flex space-x-4 mb-6">
-        {["pomodoro", "shortBreak", "longBreak"].map((m) => (
+        {["Pomodoro", "ShortBreak", "LongBreak"].map((m) => (
           <button
             key={m}
             onClick={() => {
@@ -63,12 +63,11 @@ const Timer = () => {
               setIsRunning(false);
             }}
             className={classNames(
-              "px-4 py-2 rounded-md text-white font-semibold transition",
+              "px-4 py-2 rounded-md text-white font-semibold",
               {
-                "bg-amber-500": m === "pomodoro",
-                "bg-amber-700": m === "shortBreak",
-                "bg-amber-900": m === "longBreak",
-                "opacity-70": m !== mode,
+                "bg-amber-500": m === "Pomodoro",
+                "bg-amber-700": m === "ShortBreak",
+                "bg-amber-900": m === "LongBreak"
               }
             )}
           >

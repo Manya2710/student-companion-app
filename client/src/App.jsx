@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
 import './App.css'
-import Signup from './components/Signup'
-import Login from './components/Login'
+import Signup from './components/signup'
+import Login from './components/login'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import Home from './components/Home'
 import Nav from './components/Nav'
@@ -12,12 +12,14 @@ import Notes from './components/Notes'
 import Chart from './components/Chart'
 import Syllabus from './components/Syllabus'
 import Calendar from './components/Calendar'
+import Footer from './components/Footer'
+import Game from './components/Game'
+import Fileupload from './components/Fileupload'
+
 
 function App() {
-  // const user = localStorage.getItem("token")
-
   return (
-    <div className='m-[-32px] mx-[-100px]  min-h-screen'>
+    <div className='m-[-32px]  lg:-mx-10 xl:-mx-24 min-h-screen'>
       <Nav/>
     <Routes>
       {/* <Route path='/Nav' element={<Nav/>}/> */}
@@ -30,7 +32,10 @@ function App() {
       <Route path='/Chart' element={<Chart/>}/>
       <Route path='/Syllabus' element={<Syllabus/>}/>
       <Route path='/Calendar' element={<Calendar/>}/>
+      <Route path='/Game' element={<Game/>}/>
+      <Route path='/Fileupload' element={<Fileupload/>}/>
     </Routes>
+    <Footer/>
     </div>
   )
 };

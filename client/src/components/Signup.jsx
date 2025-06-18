@@ -37,11 +37,11 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-white text-green-800">
+    <div className="min-h-screen glass-card text-black">
   
-        <div className="flex flex-col items-center justify-center px-4 mt-16 text-center">
+        <div className="flex flex-col items-center justify-center p-10 text-center">
       <form onSubmit={handleSubmit} >
-        <h2 className="text-2xl font-bold text-center text-gray-800">Sign Up</h2>
+        <h2 className="text-2xl font-bold text-center ">Sign Up</h2>
 
         <div>
           <label className="block text-sm font-medium text-gray-600">First Name</label>

@@ -41,11 +41,11 @@ It’s built as a full-stack web application (front-end + back-end) to ensure se
 ---
 
 ## 🛠 Tech Stack
-- **Front‑end**: React.js / Vue.js / Angular (mention the actual framework)
+- **Front‑end**: React.js 
 - **Back‑end**: Node.js, Express
-- **Database**: MongoDB / PostgreSQL / MySQL (choose the correct one)
-- **Authentication**: JWT / OAuth
-- **Hosting**: Heroku / Vercel / AWS
+- **Database**: MongoDB 
+- **Authentication**: JWT 
+- **Hosting**: Vercel
 
 ---
 

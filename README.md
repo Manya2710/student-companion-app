@@ -71,22 +71,22 @@ It’s built as a full-stack web application (front-end + back-end) to ensure se
    npm run dev
 
 ### Setup environment variables
-   # server/.env
+  server/.env
   DB_URI=your_database_url
   JWT_SECRET=your_jwt_secret
   PORT=5000
 
 ### Usage
-Create an account or log in
-Add courses, tasks, and reminders
-Add important notes and things to remember 
-Upload or organize study materials
+- Create an account or log in
+- Add courses, tasks, and reminders
+- Add important notes and things to remember 
+- Upload or organize study materials
 
 ### Project structure
 
 student-companion-app/
-├── client/       # Front-end application
-└── server/       # Back-end API 
+- client/       # Front-end application
+- server/       # Back-end API 
 
 ### License
 This project is released under the MIT License. See LICENSE for details.

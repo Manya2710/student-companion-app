@@ -92,22 +92,23 @@ export default function Login() {
           </button>
         </form>
     {pop && (
-  <Popup open modal onClose={() => setPop(false)}>
-    <div className="bg-cyan-800 p-20 rounded-xl text-center">
+  <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+    <div className="bg-cyan-800 p-10 rounded-xl text-center shadow-xl w-80">
       <h2 className="text-xl font-bold text-gray-100 mb-2">Logged in successfully</h2>
       <p className="mb-4 text-gray-200">Enjoy your study time!</p>
       <button
         onClick={() => {
           setPop(false);
-          goToHome()
+          goToHome();
         }}
         className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
       >
         Close
       </button>
     </div>
-  </Popup>
+  </div>
 )}
+
 
 
         {err && <div className="text-red-500 text-sm text-center">{err}</div>}

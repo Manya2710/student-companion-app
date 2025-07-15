@@ -1,9 +1,6 @@
 import { useState } from "react";
 import React from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
 
 export default function Login() {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -22,21 +19,27 @@ export default function Login() {
 
     try {
 			const url = "http://localhost:5000/api/auth";
-			const res = await axios.post(url, formData);
+			const res = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+			});
       
-			localStorage.setItem("token", res.data.data);
-      localStorage.setItem("user", JSON.stringify(res.data.user));
-      setPop(true);
-		} catch (err) {
-			if (
-				err.response &&
-				err.response.status >= 400 &&
-				err.response.status <= 500
-			) {
-				setErr(err.response.data.message);
-			}
-      alert("User Doesn't exist, kindly create account!");
-		}
+			if (!res.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || "Login failed");
+    }
+
+    const data = await response.json();
+    localStorage.setItem("token", data.data);
+    localStorage.setItem("user", JSON.stringify(data.user));
+    setPop(true);
+  } catch (err) {
+    setErr(err.message);
+    alert("User doesn't exist, kindly create account!");
+    }
     
   };
 
